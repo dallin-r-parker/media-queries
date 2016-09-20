@@ -185,8 +185,11 @@ var __st={"a":8131505,"offset":-25200,"reqid":"146f9c88-d365-4dd2-beea-e76e70406
 
               var originalDocumentWrite = document.write;
               document.write = customDocumentWrite;
-              try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
-              document.write = originalDocumentWrite;
+                try {
+                    window.ShopifyAnalytics.merchantGoogleAnalytics.call(this);
+                } catch (error) {
+                }
+                document.write = originalDocumentWrite;
 
               
         window.ShopifyAnalytics.lib.page(
@@ -201,12 +204,12 @@ var __st={"a":8131505,"offset":-25200,"reqid":"146f9c88-d365-4dd2-beea-e76e70406
         );
       
             });
-          }
+          };
           analytics.onload = onload;
           analytics.onreadystatechange = function() {
             if (!/complete|loaded/.test(analytics.readyState)) return;
             onload();
-          }
+          };
           analytics.async = true;
           analytics.src = "https://cdn.shopify.com/s/javascripts/trekkie.storefront.min.js?v=" + trekkie_version;
           document.getElementsByTagName('head')[0].appendChild(analytics);
